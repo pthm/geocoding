@@ -1,0 +1,23 @@
+{
+  "name": "geocoding",
+  "version": "1.0.0",
+  "description": "A wrapper for googles geocoding API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Patt-tom McDonnell <contact@mcdonnell.pt>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pthm/geocoding.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pthm/geocoding/issues"
+  },
+  "homepage": "https://github.com/pthm/geocoding#readme",
+  "dependencies": {
+    "q": "^1.4.1",
+    "superagent": "^2.0.0-alpha.3"
+  }
+}
