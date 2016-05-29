@@ -1,6 +1,6 @@
 {
   "name": "geocoding",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A wrapper for googles geocoding API",
   "main": "index.js",
   "scripts": {

@@ -15,6 +15,17 @@ function geocode(options){
     query.key = options.key;
   }
 
+  if(options.region){
+    query.region = options.region;
+  }
+
+  if(options.bounds){
+    var bounds = options.bounds;
+    var northeast = [bounds.northeast.lat, bounds.northeast.lng].join(',');
+    var southwest = [bounds.southwest.lat, bounds.southwest.lng].join(',');
+    query.bounds = northeast + '|' + southwest;
+  }
+
   if(options.components){
     query.components = [];
     for(var i in options.components){
