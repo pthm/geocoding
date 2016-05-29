@@ -88,3 +88,24 @@ geocoding({
   */
 })
 ```
+
+### Region basing
+```javascript
+geocoding({
+  address: 'Toledo',
+  region: 'es'
+}).then(function(results){
+  console.log(results);
+  /*
+  [ { address_components: [ [Object], [Object], [Object], [Object], [Object], [Object] ],
+    formatted_address: 'Toledo, Toledo, Spain',
+    geometry:
+     { bounds: [Object],
+       location: [Object],
+       location_type: 'APPROXIMATE',
+       viewport: [Object] },
+    place_id: 'ChIJ8f21C60Lag0R_q11auhbf8Y',
+    types: [ 'locality', 'political' ] } ]
+  */
+})
+```

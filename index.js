@@ -49,3 +49,20 @@ function geocode(options){
 }
 
 module.exports = geocode;
+geocode({
+  address: 'Toledo',
+  region: 'es'
+}).then(function(results){
+  console.log(results);
+  /*
+  [ { address_components: [ [Object], [Object], [Object], [Object], [Object] ],
+    formatted_address: 'Winnetka, Los Angeles, CA, USA',
+    geometry:
+     { bounds: [Object],
+       location: [Object],
+       location_type: 'APPROXIMATE',
+       viewport: [Object] },
+    place_id: 'ChIJ0fd4S_KbwoAR2hRDrsr3HmQ',
+    types: [ 'neighborhood', 'political' ] } ]
+  */
+})
