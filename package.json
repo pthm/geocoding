@@ -1,6 +1,6 @@
 {
   "name": "geocoding",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A wrapper for googles geocoding API",
   "main": "index.js",
   "scripts": {
@@ -16,6 +16,7 @@
     "url": "https://github.com/pthm/geocoding/issues"
   },
   "homepage": "https://github.com/pthm/geocoding#readme",
+  "keywords": ["geocode", "geocoding", "google", "geocoder"],
   "dependencies": {
     "q": "^1.4.1",
     "superagent": "^2.0.0-alpha.3"
