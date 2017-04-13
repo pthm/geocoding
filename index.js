@@ -30,10 +30,7 @@ function geocode(options){
     query.bounds = northeast + '|' + southwest;
   }
 
-  if(options.components || options.result_type){
-    if(options.result_type){
-      options.components = options.result_type
-    }
+  if(options.components ){
     query.components = [];
     for(var i in options.components){
       query.components.push([i, options.components[i]].join(':'))
@@ -43,16 +40,20 @@ function geocode(options){
 
   if(options.latlng){
     if(options.place_id){
-      throw new Error('Cannot supply latlng and place_id in a single query')
+      return deffered.reject(new Error('Cannot supply latlng and place_id in a single query'));
     }
-    query.latlng = options.latlng
+    query.latlng = options.latlng.join(',')
   }
 
   if(options.place_id){
     if(options.latlng){
-      throw new Error('Cannot supply latlng and place_id in a single query')
+      return deffered.reject(new Error('Cannot supply latlng and place_id in a single query'));
     }
     query.place_id = options.place_id
+  }
+
+  if(options.result_type){
+    query.result_type = options.result_type.join('|')
   }
 
   request.get(baseUrl).query(query).end(function(err, response){
@@ -62,7 +63,11 @@ function geocode(options){
       if(response.body.results.length > 0){
         deffered.resolve(response.body.results)
       } else {
-        deffered.reject(new Error('No results'))
+        if(response.body.error_message){
+          deffered.reject(new Error(response.body.error_message))
+        } else {
+          deffered.reject(new Error('No results'))
+        }
       }
     }
   })
